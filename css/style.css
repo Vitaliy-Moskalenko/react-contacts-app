@@ -1,0 +1,46 @@
+/* Basic colors: #00b956 - green, #731982 - purple */
+html { font: 16px Arial; margin:0; padding:0; }
+body { background: #00b956; }
+
+#page {
+	padding:20px;
+	border:1px solid #731982;
+	background: #fff;
+	width:80%;
+	margin: 0 auto;
+} 
+
+/* =========== Strange stuff ==================*/
+body, .content { position: static; }
+
+.content > .table-view:first-child { margin-top: -2px; }
+
+.hidden { opacity: 0; }
+
+.media-object.big {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+}
+
+.media-object.small {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+.table-view-cell h1 {
+    font-size: 20px;
+    font-weight: normal;
+    padding: 20px 0 4px 0;
+    margin: 0;
+}
+
+input[type=search] {
+    border-radius: 8px;
+}
+
+.card {
+    margin-top:54px;
+}
+
