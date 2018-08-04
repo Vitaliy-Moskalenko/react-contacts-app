@@ -7,7 +7,7 @@ var Header = React.createClass({
 		return (
 			<header className='bar bar-nav'>
 				<a href='#'
-			   	   className={'icon icon-left-nav pull-left'+(this.props.back === true ? '' : 'hidden')}></a>
+			   	   className={'icon icon-left-nav pull-left '+(this.props.back === 'true' ? '' : 'hidden')}></a>
 				<h1 className='title'>{this.props.text}</h1>
 			</header>
 		);
@@ -59,25 +59,19 @@ var ContactListItem = React.createClass({
 
     render: function() {
         return (
-      		<div className="contact-info">
-        		<header>
-          			<h3 className="name">
+      		<li className="table-view-cell media">      		  
+       			<h3 className="name">
           				<a href={"#contacts/" + this.props.contact.id}>
           					<img className="media-object small pull-left"
           						 src={"img/"+this.props.contact.fio+".gif"}
           						 alt={this.props.contact.fio} />
           					{this.props.contact.fio}
           				</a>	
-          			</h3>	
-        		</header>
-        		<section>
-          			<p className="phone">Phone: {this.props.contact.mainNumber}</p>
-          			<p className="work-phone">Work Phone: {this.props.contact.workNumber}</p>
-          			<p className="email">E-Mail: {this.props.contact.mail}</p>
-          			<p className="address">Birth Date: {this.props.contact.birthdate}</p>
-          			<p className="address">Notes: {this.props.contact.notes}</p>
+          		</h3>
+	       		<section>
+	       			<p className="email">E-Mail: {this.props.contact.email}</p>
         		</section>
-      		</div>
+      		</li>
         );
     }
 });
@@ -102,7 +96,6 @@ var MainPage = React.createClass({
 	},
 
 	searchHandler: function(key) {
-		// console.log('SK: ' + key);
 		this.props.service.findByFio(key).done(function(result) {
 			this.setState({ searchKey: key, contacts: result });
 		}.bind(this));
@@ -184,24 +177,17 @@ var ContactDetailPage = React.createClass({
 	}
 });
 
-/* React.render(
-    <MainPage service={contactsService} />,
-    document.getElementById('app')
-); */
-
 router.addRoute('', function() {
 	React.render(
 		<MainPage service={contactsService} />,
-		document.getElementById('app')
-		// document.body
+		document.body
 	);
 });
 
 router.addRoute('contacts/:id', function(id) {
 	React.render(
 		<ContactDetailPage contactId={id} service={contactsService} />,
-		document.getElementById('app')
-		// document.body
+		document.body
 	);
 });
 

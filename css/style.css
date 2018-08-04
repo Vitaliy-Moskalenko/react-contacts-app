@@ -11,7 +11,7 @@ body { background: #00b956; }
 } 
 
 /* =========== Strange stuff ==================*/
-body, .content { position: static; }
+/* body, .content { position: static; } */
 
 .content > .table-view:first-child { margin-top: -2px; }
 
